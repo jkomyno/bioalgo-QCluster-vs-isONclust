@@ -15,3 +15,13 @@
 > Run the Docker image we've just created
 
 - `./scripts/preprocess.sh`
+
+## Simulate Sequences
+
+> Create a new Docker image called **clustering/simlord** for simulating sequences
+
+- `docker build -t clustering/simlord -f Dockerfile.simlord ./python/simulate`
+
+> Run the Docker image we've just created
+
+- `./scripts/simulate.sh`
