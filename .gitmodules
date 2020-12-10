@@ -1,0 +1,3 @@
+[submodule "third-party/isONclust"]
+	path = third-party/isONclust
+	url = https://github.com/ksahlin/isONclust.git
