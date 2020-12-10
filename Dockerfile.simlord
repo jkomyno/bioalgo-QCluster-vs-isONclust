@@ -1,0 +1,27 @@
+FROM python:3.9-slim-buster AS base
+
+RUN apt-get update
+
+# install native dependencies
+RUN apt-get install -y --no-install-recommends \
+  make \
+  gcc \
+  zlib1g-dev \
+  python3-dev \
+  libbz2-dev \
+  liblzma-dev
+
+RUN pip install numpy==1.19.4 scipy==1.5.4 cython==0.29.21
+RUN pip install pysam==0.16
+
+RUN apt-get install -y --no-install-recommends \
+  g++
+
+RUN pip install dinopy==2.2.0
+RUN pip install simlord
+
+WORKDIR /usr/app
+
+RUN touch __init__.py
+
+ENTRYPOINT [ "python", "-m", "simulate" ]
