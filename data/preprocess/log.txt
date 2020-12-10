@@ -1,0 +1,7 @@
+2nd best cluster: (1254 elements)
+    Min length: ('ENST00000316334.5', 4750)
+    Max length: ('ENST00000356818.7', 4951)
+
+3rd best cluster: (1107 elements)
+    Min length: ('ENST00000003912.7', 5481)
+    Max length: ('ENST00000676457.1', 5572)
