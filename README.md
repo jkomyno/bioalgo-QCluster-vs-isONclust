@@ -25,3 +25,23 @@
 > Run the Docker image we've just created
 
 - `./scripts/simulate.sh`
+
+## Cluster with isONclust
+
+> Create a new Docker image called **clustering/isonclust** for clustering sequences
+
+- `docker build -t clustering/isonclust -f Dockerfile.isonclust ./third-party`
+
+> Run the Docker image we've just created
+
+- `./scripts/isONclust.sh`
+
+## Cluster with qCluster
+
+> Create a new Docker image called **clustering/qcluster** for clustering sequences
+
+- `docker build -t clustering/qcluster -f Dockerfile.qcluster .empty`
+
+> Run the Docker image we've just created
+
+- `./scripts/qCluster.sh`
