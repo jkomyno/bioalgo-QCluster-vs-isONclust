@@ -3,7 +3,7 @@ import sys
 import subprocess
 from pathlib import Path
 
-from .ParameterGrid import ParameterGrid
+from ..parameter_grid import ParameterGrid
 
 # Example of run:
 # simlord -n 100000 -fl 100 \

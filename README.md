@@ -20,7 +20,7 @@
 
 > Create a new Docker image called **clustering/simlord** for simulating sequences
 
-- `docker build -t clustering/simlord -f Dockerfile.simlord ./python/simulate`
+- `docker build -t clustering/simlord -f Dockerfile.simlord .empty`
 
 > Run the Docker image we've just created
 

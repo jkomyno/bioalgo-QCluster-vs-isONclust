@@ -24,4 +24,4 @@ WORKDIR /usr/app
 
 RUN touch __init__.py
 
-ENTRYPOINT [ "python", "-m", "simulate" ]
+ENTRYPOINT [ "python", "-m", "python.simulate" ]

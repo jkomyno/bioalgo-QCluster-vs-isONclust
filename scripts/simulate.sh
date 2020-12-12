@@ -2,5 +2,5 @@
 
 docker run \
   -v "$(pwd)/data":/data \
-  -v "$(pwd)/python/simulate":/usr/app/simulate \
+  -v "$(pwd)/python":/usr/app/python \
   clustering/simlord /data
