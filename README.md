@@ -45,3 +45,9 @@
 > Run the Docker image we've just created
 
 - `./scripts/qCluster.sh`
+
+## Compute cluster quality metrics
+
+> Create a new Docker image called **clustering/quality** for computing the cluster quality metrics
+
+- `docker build -t clustering/quality -f Dockerfile.quality ./python/quality`
