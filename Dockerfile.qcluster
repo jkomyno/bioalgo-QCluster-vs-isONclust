@@ -1,0 +1,36 @@
+FROM python:3.9-slim-buster AS base
+
+RUN apt-get update
+
+# install native dependencies
+RUN apt-get install -y --no-install-recommends \
+  make \
+  g++ \
+  wget \
+  unzip
+
+RUN apt-get autoremove --purge -y
+RUN apt-get autoclean -y
+RUN rm -rf /var/cache/apt/*
+
+
+FROM base as qcluster
+
+RUN wget -O /tmp/qCluster.$$ http://www.dei.unipd.it/~ciompin/software/QCluster.zip && \
+   unzip /tmp/qCluster.$$ && \
+   rm /tmp/qCluster.$$
+
+# Build qCluster
+RUN (cd ./qCluster && make)
+RUN chmod +x ./qCluster/qCluster
+RUN cp ./qCluster/qCluster /usr/bin/
+
+
+FROM base
+
+# copy qCluster executable
+COPY --from=qcluster /usr/bin/qCluster /usr/bin/qCluster
+
+WORKDIR /usr/app
+
+ENTRYPOINT [ "python", "-u", "-m", "python.qcluster" ]
