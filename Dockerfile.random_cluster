@@ -1,0 +1,21 @@
+FROM python:3.9-slim-buster
+
+RUN apt-get update
+
+# install native dependencies
+RUN apt-get install -y --no-install-recommends \
+  make \
+  gcc \
+  g++ \
+  zlib1g-dev \
+  python3-dev
+
+WORKDIR /usr/app
+
+RUN touch __init__.py
+
+COPY requirements.txt random_cluster/requirements.txt
+
+RUN pip install -r random_cluster/requirements.txt
+
+ENTRYPOINT [ "python", "-m", "random_cluster" ]
