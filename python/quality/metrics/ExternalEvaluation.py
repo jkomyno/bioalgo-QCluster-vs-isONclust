@@ -43,17 +43,30 @@ class ExternalEvaluation:
   # Range: [0, 1], where 1 is the perfect result.
   fowlkes_mallows: float
 
+  # To compute purity, each cluster is assigned to the class which is most
+  # frequent in the cluster, and then the accuracy of this assignment is
+  # measured by counting the number of correct assignments divided by the
+  # cardinality of the cluster.
+  #
+  # Range: [0, 1], where 1 is the perfect result. 
+  purity: float
+
+  # Inverse of the purity score
+  inverse_purity: float
+
 
   def __str__(self):
     return (f'\n\t- Homogeneity: {self.homogeneity}\n'
             f'\t- Completeness: {self.completeness}\n'
             f'\t- V-measure: {self.v_measure}\n'
             f'\t- Adjusted RI: {self.adjusted_rand_index}\n'
-            f'\t- Fowlkes-Mallows: {self.fowlkes_mallows}\n')
+            f'\t- Fowlkes-Mallows: {self.fowlkes_mallows}\n'
+            f'\t- Purity: {self.purity}\n'
+            f'\t- Inverse purity: {self.inverse_purity}\n')
 
 
   def __iter__(self):
     """
     Enables iterating over data class fields
     """
-    return iter(astuple(self))
+    return iter(self.__dict__.items())
