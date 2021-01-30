@@ -6,4 +6,4 @@ docker run \
   clustering/preprocess \
   /data/original/input.fasta \
   /data/preprocess/preprocessed.fasta \
-  1000
+  100
