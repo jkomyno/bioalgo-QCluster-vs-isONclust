@@ -14,7 +14,7 @@ from ..parameter_grid import ParameterGrid
 grid_params = {
   # Number of reads to simulate.
   # -n
-  'num_reads': [100000, 500000, 1000000],
+  'num_reads': [10000, 20000, 50000],
 
   # Length of reads
   # -fl
