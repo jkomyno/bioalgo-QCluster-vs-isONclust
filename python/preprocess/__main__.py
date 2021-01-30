@@ -30,5 +30,5 @@ if __name__ == '__main__':
   #######################
 
   preprocess(input_fasta_file, output_fasta_file, \
-             n_sequences_to_keep, std_dev_threshold \
+             n_sequences_to_keep, std_dev_threshold, \
              seed)

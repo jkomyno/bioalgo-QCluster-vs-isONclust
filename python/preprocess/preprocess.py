@@ -77,7 +77,7 @@ def select_best_sequences_from_clusters(cluster_dict: Dict[int, List[Tuple[str, 
   """
 
   def select_best_indexes(data):
-    indexes = heapq.nlargest(3, range(len(data)), data.__getitem__)
+    indexes = heapq.nlargest(4, range(len(data)), data.__getitem__)
     return indexes
 
 
@@ -85,13 +85,14 @@ def select_best_sequences_from_clusters(cluster_dict: Dict[int, List[Tuple[str, 
   lst  = list(map(lambda x: (len(x), x), cluster_dict.values()))
 
   best_indexes = select_best_indexes(data)
-  first_best_idx, second_best_idx, third_best_idx = best_indexes[0], best_indexes[1], best_indexes[2]
+  first_best_idx, second_best_idx, third_best_idx, fourth_best_idx \
+    = best_indexes[0], best_indexes[1], best_indexes[2], best_indexes[3]
 
-  # first_best_len, first_best_list = lst[first_best_idx]
-  # print(f'1st best cluster: ({first_best_len} elements)')
-  # print(f'    Min length: {min(first_best_list, key=snd)}')
-  # print(f'    Max length: {max(first_best_list, key=snd)}')
-  # print('')
+  first_best_len, first_best_list = lst[first_best_idx]
+  print(f'1st best cluster: ({first_best_len} elements)')
+  print(f'    Min length: {min(first_best_list, key=snd)}')
+  print(f'    Max length: {max(first_best_list, key=snd)}')
+  print('')
 
   second_best_len, second_best_cluster = lst[second_best_idx]
   print(f'2nd best cluster: ({second_best_len} elements)')
@@ -105,19 +106,13 @@ def select_best_sequences_from_clusters(cluster_dict: Dict[int, List[Tuple[str, 
   print(f'    Max length: {max(third_best_cluster)}')
   print('')
 
+  fourth_best_len, fourth_best_cluster = lst[fourth_best_idx]
+  print(f'4th best cluster: ({fourth_best_len} elements)')
+  print(f'    Min length: {min(fourth_best_cluster)}')
+  print(f'    Max length: {max(fourth_best_cluster)}')
+  print('')
+
   return third_best_cluster
-
-
-def get_stats_from_fasta_file(fasta_file):
-  lengths = [len(seq_record) for seq_record in SeqIO.parse(fasta_file, 'fasta')]
-  return {
-    'min': np.min(lengths),
-    'max': np.max(lengths),
-    'avg': int(np.mean(lengths)),
-    'median': int(np.median(lengths)),
-    'std': np.std(lengths),
-    'var': np.std(lengths),
-  }
 
 
 def get_accessor(identifier: str) -> str:

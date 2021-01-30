@@ -17,7 +17,7 @@ DISTANCE_EUCLIDEAN = 'e'
 default_const_params = {
   # number of clusters.
   # -c
-  'num_cluster': 1000,
+  'num_cluster': 100,
 
   # whether to redistribute missing quality among other bases or not.
   # -R
@@ -38,7 +38,7 @@ default_grid_params = {
 
   # length of word.
   # -k
-  'kmer_length': [4, 5, 6, 7, 8, 9],
+  'kmer_length': [4, 5, 6, 7, 8],
 }
 
 

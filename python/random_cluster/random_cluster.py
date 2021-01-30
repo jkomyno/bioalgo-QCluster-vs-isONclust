@@ -2,36 +2,35 @@ from pathlib import Path
 from numpy.random import Generator, PCG64, SeedSequence
 from os import path
 from Bio import SeqIO
-from typing import List, Iterable, Set, Dict, TypeVar
+from typing import List, Iterable, FrozenSet, Dict, TypeVar
 
 
 def get_input_fastq_file(args):
   return path.join(args.data, 'simulated', args.simulated, 'simulated.fastq')
 
 
-def get_read_ids(input_fastq_file: str) -> Set[str]:
+def get_read_ids(input_fastq_file: str) -> List[str]:
   """
   Reads a fastq file and returns the set of read ids.
   The file is accessed in a streaming fashion, to avoid memory issues.
   """
-  return set([
+  return [
     seq_record.description.split(' ')[0]
     for seq_record in SeqIO.parse(input_fastq_file, 'fastq')
-  ])
+  ]
 
 
 T = TypeVar('T')
-def divide_in_partitions(iterable: Iterable[T], k: int, seed: int) -> List[Set[T]]:
+def divide_in_partitions(l: List[T], k: int, seed: int) -> List[FrozenSet[T]]:
   """
-  Divide the given iterable into k random partitions
+  Divide the given list into k random partitions
   """
-  l = list(iterable)
   rng = Generator(PCG64(SeedSequence(seed)))
   rng.shuffle(l)
-  return [set(l[j::k]) for j in range(k)]
+  return [frozenset(l[j::k]) for j in range(k)]
 
 
-def write_clusters_to_tsv(clusters: List[Set[str]], tsv_path: str):  
+def write_clusters_to_tsv(clusters: List[FrozenSet[str]], tsv_path: str):  
   output_tsv_directory = path.dirname(tsv_path)
   Path(output_tsv_directory).mkdir(parents=True, exist_ok=True)
 
@@ -53,4 +52,4 @@ def random_cluster(args, seed: int):
   tsv_path = path.join(args.data, 'random_cluster', args.simulated,
                        'inferred_clusters.tsv')
 
-  write_clusters_to_tsv(clusters, tsv_path)
+  # write_clusters_to_tsv(clusters, tsv_path)

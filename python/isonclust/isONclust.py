@@ -18,7 +18,7 @@ default_const_params = {
 
   # Number of CPU cores allocated for clustering.
   # --t
-  'num_cores': 1,
+  'num_cores': 2,
 
   # Minimum probability for i consecutive minimizers to be
   # different between read and representative and still
