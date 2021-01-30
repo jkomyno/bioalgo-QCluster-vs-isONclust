@@ -6,10 +6,14 @@ RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
   make \
   gcc \
+  g++ \
   zlib1g-dev \
   python3-dev \
   libbz2-dev \
   liblzma-dev
+
+# https://github.com/jeffdaily/parasail-python/issues/57
+RUN pip install parasail==1.2.1
 
 # install Python dependencies
 COPY ./isONclust/requirements.txt ./requirements.txt
