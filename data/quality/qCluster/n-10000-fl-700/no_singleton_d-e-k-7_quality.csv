@@ -1,0 +1,2 @@
+homogeneity,completeness,v_measure,adjusted_rand_index,fowlkes_mallows,purity,inverse_purity,k,min_size,max_size,avg_size,std_size
+0.2334691283192995,0.5657189599068403,0.33053023284245386,0.015617913881489918,0.09957964336037628,0.678,0.1573,100,5,4022,100.0,547.0516611801851
