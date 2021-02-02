@@ -27,6 +27,9 @@ class ExternalEvaluation:
   # Range: [0, 1], where 1 is the perfect result.
   v_measure: float
 
+  # Range: [-1, 1], where 1 is the perfect result.
+  adjusted_mutual_information: float
+
   # The Rand Index (RI) computes a similarity measure between two clustering
   # by considering all pairs of samples and counting pairs that are assigned in
   # the same or different clusters in the predicted and true clusterings.
@@ -59,6 +62,7 @@ class ExternalEvaluation:
     return (f'\n\t- Homogeneity: {self.homogeneity}\n'
             f'\t- Completeness: {self.completeness}\n'
             f'\t- V-measure: {self.v_measure}\n'
+            f'\t- Adjusted Mutual Information: {self.adjusted_mutual_information}\n'
             f'\t- Adjusted RI: {self.adjusted_rand_index}\n'
             f'\t- Fowlkes-Mallows: {self.fowlkes_mallows}\n'
             f'\t- Purity: {self.purity}\n'
