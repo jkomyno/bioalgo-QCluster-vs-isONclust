@@ -1,4 +1,5 @@
 import numpy as np
+from operator import itemgetter
 from . import ClusterStats
 from typing import Dict, Tuple, List, Set
 
@@ -14,10 +15,13 @@ def compute_cluster_labels(clusters: Dict[str, int],
   if len(lst) == 0:
       return [], []
 
-  labels_true, labels_pred = zip(*[
+  class_cluster_pair_list = [
     (classes[read_id], clusters[read_id])
     for read_id in lst
-  ])
+  ]
+
+  labels_true = list(map(itemgetter(0), class_cluster_pair_list))
+  labels_pred = list(map(itemgetter(1), class_cluster_pair_list))
 
   return labels_true, labels_pred
 
