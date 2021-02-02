@@ -11,7 +11,6 @@ from ..parameter_grid import ParameterGrid
 
 DISTANCE_D2_STAR = 'a'
 DISTANCE_CHI_SQUARE = 'c'
-DISTANCE_D2 = 'd'
 DISTANCE_EUCLIDEAN = 'e'
 
 default_const_params = {
@@ -33,12 +32,13 @@ default_grid_params = {
   # -d
   'dist_type': [
     DISTANCE_CHI_SQUARE,
-    DISTANCE_EUCLIDEAN
+    DISTANCE_EUCLIDEAN,
+    DISTANCE_D2_STAR
   ],
 
   # length of word.
   # -k
-  'kmer_length': [4, 5, 6, 7, 8],
+  'kmer_length': [4, 5, 6, 7, 8, 9],
 }
 
 
