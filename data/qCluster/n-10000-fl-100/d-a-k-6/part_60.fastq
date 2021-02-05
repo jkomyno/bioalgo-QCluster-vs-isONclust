@@ -1,0 +1,8 @@
+@m1090/100/CCS Read=1090;length=100bp;startpos=1424;chromosome=ENSG00000117114|ENSG00000117114.20|ENST00000370715|ENST00000370715.5;numberOfErrors=1;totalErrorProb=0.0030;passes=7.90942870228309;passesLeft=7;passesRight=8;cutPosition=9
+CCAGCTACAGTTGTGCTCATGGGGCCTTTCTGTGAAGTTAGTGCTTGTGGTTGATATTATGGTTTTGAACAGCTCAGCTGAAGAAGTTATTGTCACAGCT
++
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;777777777
+@m3423/100/CCS Read=3423;length=100bp;startpos=1420;chromosome=ENSG00000117114|ENSG00000117114.20|ENST00000370715|ENST00000370715.5;numberOfErrors=0;totalErrorProb=0.0000;passes=40;passesLeft=40;passesRight=40;cutPosition=0
+GCTACAGTTGTGCTCATGGGGCCTTTCTGTGAAGTAGTGCTTGTGGTTGATATTATGGTTTTGAACAGCTCAGCTGAAGAAGTTATTGTCACAGCTGTGG
++
+]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]

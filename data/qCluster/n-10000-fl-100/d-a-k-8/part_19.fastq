@@ -1,0 +1,12 @@
+@m1155/100/CCS Read=1155;length=100bp;startpos=1369;chromosome=ENSG00000101040|ENSG00000101040.19|ENST00000396281|ENST00000396281.8;numberOfErrors=1;totalErrorProb=0.0355;passes=3.966953440857615;passesLeft=3;passesRight=4;cutPosition=3
+CCTGCGGATTGTTCTCCACGTAAACCTCCATCTCTTGCATGGCACTGTTGAAGATGCTCTTAGTCTTTTTCACAGAAAAAGGAATTTCTTTAGACATGAG
++
+/////////////////////////////////////////////////////////////////////////////////////////////////111
+@m5531/100/CCS Read=5531;length=100bp;startpos=1331;chromosome=ENSG00000101040|ENSG00000101040.19|ENST00000355972|ENST00000355972.8;numberOfErrors=0;totalErrorProb=0.0000;passes=40;passesLeft=40;passesRight=40;cutPosition=0
+TAAAAACCCCAAACTTCCTGCGGATGTTCTCCACGTAAACCTCCATCTCTTGCATGGCACTGTTGAAGATGCTCTTAGTCTTTTTCACAGAAAAAGGAAT
++
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+@m9996/100/CCS Read=9996;length=100bp;startpos=1386;chromosome=ENSG00000101040|ENSG00000101040.19|ENST00000355972|ENST00000355972.8;numberOfErrors=4;totalErrorProb=0.0375;passes=3.1556056595629416;passesLeft=3;passesRight=4;cutPosition=84
+CAGCATTTGATACTGGGCTGTTGGGTGTGTAGGGTGTCCTAATGGAGGAGTAATTAAAAACCCCAAACTTCCTGCGGATGATTCTCCACGTAAACCTCCA
++
+2222222222222222////////////////////////////////////////////////////////////////////////////////////

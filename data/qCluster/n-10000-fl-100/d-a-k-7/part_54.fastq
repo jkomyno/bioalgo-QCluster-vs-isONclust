@@ -1,0 +1,8 @@
+@m2536/100/CCS Read=2536;length=100bp;startpos=2787;chromosome=ENSG00000151148|ENSG00000151148.14|ENST00000434735|ENST00000434735.6;numberOfErrors=0;totalErrorProb=0.0018;passes=7.926325432758866;passesLeft=7;passesRight=8;cutPosition=7
+CATCCATGAGAATTACCTGCAGCTCTTCGAGTTTGTGGGGAAGATGCTGGGGAAGGCTGTGTATGAGGGAATTGTGGTGGACGTGCCATTTGCATCCTTC
++
+9999999=============================================================================================
+@m3916/100/CCS Read=3916;length=100bp;startpos=2836;chromosome=ENSG00000151148|ENSG00000151148.14|ENST00000434735|ENST00000434735.6;numberOfErrors=0;totalErrorProb=0.0010;passes=12.773948011508635;passesLeft=13;passesRight=12;cutPosition=77
+GGGAAGGCTGTGTATGAGGGAATTGTGGTGGACGTGCCATTTGCATCCTTCTTCCTGAGCCAACTGCTTGGGCACCACCACAGCGTCTTCTATAGCTCGG
++
+?????????????????????????????????????????????????????????????????????????????@@@@@@@@@@@@@@@@@@@@@@@

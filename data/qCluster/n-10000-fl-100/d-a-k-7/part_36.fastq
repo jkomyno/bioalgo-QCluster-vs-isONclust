@@ -1,0 +1,12 @@
+@m709/100/CCS Read=709;length=100bp;startpos=1640;chromosome=ENSG00000225967|ENSG00000225967.9|ENST00000455842|ENST00000455842.2;numberOfErrors=0;totalErrorProb=0.0018;passes=9.483271498256508;passesLeft=9;passesRight=10;cutPosition=52
+CTGTGAGATGGGCTTTTCATCCAGCAGCACCTGTCCCCCTGTGGGCTGGTACAGATTCTGCAGCAGGGCAGCCACTGTGCTCTTCCCAGACCCATTGGGT
++
+================================================<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+@m3570/100/CCS Read=3570;length=100bp;startpos=1692;chromosome=ENSG00000225967|ENSG00000225967.9|ENST00000455842|ENST00000455842.2;numberOfErrors=4;totalErrorProb=0.0427;passes=2.89308397871636;passesLeft=3;passesRight=2;cutPosition=89
+GGCCTCTCTGCCCAACTGAAACCACCTGGCTGTGCAGGTAGCAGTGTTCATACTGTGAGATGGGCTTTTCATCTCAGCAGCACTGTCCCCCTGTGGGCTG
++
+,,,,,,,,,,,/////////////////////////////////////////////////////////////////////////////////////////
+@m9260/100/CCS Read=9260;length=100bp;startpos=1696;chromosome=ENSG00000225967|ENSG00000225967.9|ENST00000455842|ENST00000455842.2;numberOfErrors=0;totalErrorProb=0.0009;passes=8.087423244051665;passesLeft=9;passesRight=8;cutPosition=9
+AGCACAGGCTCCTGCCCAACTGAAACCACCTGGCTGTGCAGGTAGCAGTGTTCATACTGTGAGATGGGCTTTTCATCCAGCAGCACCTGTCCCCCTGTGG
++
+???????????????????????????????????????????????????????????????????????????????????????????AAAAAAAAA
