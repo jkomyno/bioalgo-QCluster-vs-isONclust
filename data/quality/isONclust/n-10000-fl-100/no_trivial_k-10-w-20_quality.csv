@@ -1,2 +1,2 @@
-homogeneity,completeness,v_measure,adjusted_rand_index,fowlkes_mallows,purity,inverse_purity,k,min_size,max_size,avg_size,std_size
-0.8874065873889615,0.8699760073047613,0.8786048548377033,0.8098859315589354,0.8533103351879245,0.92,0.92,7319,1,7,1.3663068725235687,0.6717750888640864
+homogeneity,completeness,v_measure,adjusted_mutual_information,adjusted_rand_index,fowlkes_mallows,purity,inverse_purity,k,min_size,max_size,avg_size,std_size
+0.8874065873889615,0.8699760073047613,0.8786048548377033,0.8539606232140361,0.8098859315589354,0.8533103351879245,0.92,0.92,7319,1,7,1.3663068725235687,0.6717750888640864
