@@ -104,47 +104,76 @@ def quality(args):
 
   trivial_class_chromosomes = set(compute_trivial_classes(chromosome_to_read_ids_map, threshold=args.threshold))
   print(f'# trivial classes: {len(trivial_class_chromosomes)}')
+  assert len(trivial_class_chromosomes) == 0
+
   labels_true, labels_pred = metrics.compute_cluster_labels(clusters, classes)
   external_evaluation = metrics.compute_external_metrics(labels_true, labels_pred)
   print(f'External evaluation: {external_evaluation}\n')
 
   if external_evaluation is not None:
-    df = create_dataframe(external_evaluation=external_evaluation,
-                          cluster_stats=cluster_stats)
-    write_dataframe_to_csv(df, args)
+    df = create_quality_dataframe(external_evaluation=external_evaluation,
+                                  cluster_stats=cluster_stats)
+    write_quality_dataframe_to_csv(df, args)
 
-  if tool != 'random_cluster':
-    # metrics for singleton clusters
-    singleton_cluster_ids = set(compute_trivial_clusters(cluster_id_to_read_ids_map, threshold=1))
-    print(f'# singleton clusters: {len(singleton_cluster_ids)}')
-    labels_true_no_singleton, labels_pred_no_singleton = metrics.compute_cluster_labels(clusters, classes, without=singleton_cluster_ids)
-    external_evaluation_no_singleton = metrics.compute_external_metrics(labels_true_no_singleton, labels_pred_no_singleton)
-    print(f'External evaluation (no singleton): {external_evaluation_no_singleton}\n')
+  if tool == 'random_cluster':
+    return
+  
+  # metrics for singleton clusters
+  singleton_cluster_ids = set(compute_trivial_clusters(cluster_id_to_read_ids_map, threshold=1))
+  print(f'# singleton clusters: {len(singleton_cluster_ids)}')
+  labels_true_no_singleton, labels_pred_no_singleton = metrics.compute_cluster_labels(clusters, classes, without=singleton_cluster_ids)
+  external_evaluation_no_singleton = metrics.compute_external_metrics(labels_true_no_singleton, labels_pred_no_singleton)
+  print(f'External evaluation (no singleton): {external_evaluation_no_singleton}\n')
 
-    if external_evaluation_no_singleton is not None:
-        df = create_dataframe(external_evaluation=external_evaluation_no_singleton, 
-                              cluster_stats=cluster_stats)
-        write_dataframe_to_csv(df, args, prefix='no_singleton_')
+  if external_evaluation_no_singleton is not None:
+      df = create_quality_dataframe(external_evaluation=external_evaluation_no_singleton, 
+                                    cluster_stats=cluster_stats)
+      write_quality_dataframe_to_csv(df, args, prefix='no_singleton_')
 
-    # metrics for trivial clusters wrt `args.threshold`
-    trivial_cluster_ids = set(compute_trivial_clusters(cluster_id_to_read_ids_map, threshold=args.threshold))
-    print(f'# trivial clusters: {len(trivial_cluster_ids)}')
-    labels_true_no_trivial, labels_pred_no_trivial = metrics.compute_cluster_labels(clusters, classes, without=trivial_cluster_ids)
-    external_evaluation_no_trivial = metrics.compute_external_metrics(labels_true_no_trivial, labels_pred_no_trivial)
-    print(f'External evaluation (no trivial): {external_evaluation_no_trivial}\n')
+  # metrics for trivial clusters wrt `args.threshold`
+  trivial_cluster_ids = set(compute_trivial_clusters(cluster_id_to_read_ids_map, threshold=args.threshold))
+  print(f'# trivial clusters: {len(trivial_cluster_ids)}')
+  labels_true_no_trivial, labels_pred_no_trivial = metrics.compute_cluster_labels(clusters, classes, without=trivial_cluster_ids)
+  external_evaluation_no_trivial = metrics.compute_external_metrics(labels_true_no_trivial, labels_pred_no_trivial)
+  print(f'External evaluation (no trivial): {external_evaluation_no_trivial}\n')
 
-    if external_evaluation_no_trivial is not None:
-      df = create_dataframe(external_evaluation=external_evaluation_no_trivial, 
-                              cluster_stats=cluster_stats)
-      write_dataframe_to_csv(df, args, prefix='no_trivial_')
+  if external_evaluation_no_trivial is not None:
+    df = create_quality_dataframe(external_evaluation=external_evaluation_no_trivial, 
+                                  cluster_stats=cluster_stats)
+    write_quality_dataframe_to_csv(df, args, prefix='no_trivial_')
 
-  # 1. Compare metrics between similar clustering results, e.g. check if metrics are better
-  #    when increasing the k-mer length or the window width.
-  # 2. Compare the metrics obtained to a random clustering
-  # 3. For each chromosome, we could try to look for the cluster in which it appears most often.
+  # number of clusters by quality types
+  n_clusters = k
+  n_clusters_trivial = len(trivial_cluster_ids)
+  n_clusters_singleton = len(singleton_cluster_ids)
+
+  df = create_n_clusters_dataframe(n_clusters, n_clusters_trivial, n_clusters_singleton)
+  write_n_clusters_dataframe_to_csv(df, args)
 
 
-def write_dataframe_to_csv(df: pd.DataFrame, args, prefix: str = ''):
+def create_n_clusters_dataframe(n_clusters: int,
+                                n_clusters_trivial: int,
+                                n_clusters_singleton: int) -> pd.DataFrame:
+  data = {
+    'k': [n_clusters],
+    'k_non_trivial': [n_clusters - n_clusters_trivial],
+    'k_trivial': [n_clusters_trivial],
+    'k_singleton': [n_clusters_singleton],
+  }
+  df = pd.DataFrame.from_dict(data)
+  return df
+
+
+def write_n_clusters_dataframe_to_csv(df: pd.DataFrame, args):
+  csv_filename = f'{args.result}_n_clusters.csv'
+  csv_path = path.join(args.data, 'quality', args.tool, args.simulated)
+  Path(csv_path).mkdir(parents=True, exist_ok=True)
+
+  df.to_csv(path.join(csv_path, csv_filename), sep=',', index=False,
+          encoding='utf-8', decimal='.')
+
+
+def write_quality_dataframe_to_csv(df: pd.DataFrame, args, prefix: str = ''):
   csv_prefix = f'{prefix}{args.result}'
 
   if len(csv_prefix) > 0:
@@ -158,8 +187,8 @@ def write_dataframe_to_csv(df: pd.DataFrame, args, prefix: str = ''):
             encoding='utf-8', decimal='.')
 
 
-def create_dataframe(external_evaluation: metrics.ExternalEvaluation,
-                     cluster_stats: metrics.ClusterStats):
+def create_quality_dataframe(external_evaluation: metrics.ExternalEvaluation,
+                             cluster_stats: metrics.ClusterStats) -> pd.DataFrame:
   metrics_data = {
     metric_name: [metric_value] for (metric_name, metric_value) in external_evaluation
   }
