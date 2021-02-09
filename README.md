@@ -13,6 +13,7 @@ In this project, we examine and compare two open-source software tools for the t
 A comprehensive report of the project can be found in [report.pdf](report.pdf).
 
 To visualize the clustering quality plots and tables generated for this report, please refer to the [analysis.ipynb](analysis.ipynb) `Python` notebook.
+If Github struggles to load the notebook file, please try viewing the notebook with [nbviewer](https://nbviewer.jupyter.org/github/jkomyno/bioalgo-QCluster-vs-isONclust/blob/master/analysis.ipynb).
 
 We developed some modules written in Python3 to perform our experiments:
 
