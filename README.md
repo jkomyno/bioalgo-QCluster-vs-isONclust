@@ -1,4 +1,4 @@
-# A comparison of QCluster and isONclust for clustering synthetic sequences
+# A Comparison of QCluster and isONclust for Clustering Synthetic Sequences
 
 -------------------------------------------------------------------------
 
